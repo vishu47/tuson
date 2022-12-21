@@ -33,11 +33,27 @@ const ActionGetMenuItem: any = createAsyncThunk(
     return res.data
   }
 )
+const ActionGetPageItem: any = createAsyncThunk(
+  'HomepageReducer/ActionGetPageItem',
+  // naming convention (reducer/action_name)
+  async (id: number) => {
+    const res = await HomepageHttpHandle.GetPageItem(id)
+    return res.data
+  }
+)
 const ActionEditMenuItem: any = createAsyncThunk(
   'HomepageReducer/ActionEditMenuItem',
   // naming convention (reducer/action_name)
   async (data: any) => {
     const res = await HomepageHttpHandle.EditMenuItem(data)
+    return res.data
+  }
+)
+const ActionEditPageItem: any = createAsyncThunk(
+  'HomepageReducer/ActionEditPageItem',
+  // naming convention (reducer/action_name)
+  async (data: any) => {
+    const res = await HomepageHttpHandle.EditPageItem(data)
     return res.data
   }
 )
@@ -66,6 +82,33 @@ const ActionCreatePage: any = createAsyncThunk(
   }
 )
 
+const ActionDeletePageSection: any = createAsyncThunk(
+  'HomepageReducer/ActionDeletePageSection',
+  // naming convention (reducer/action_name)
+  async (id: number) => {
+    const res = await HomepageHttpHandle.DeletePageSection(id)
+    return res.data
+  }
+)
+
+const ActionCreateSubPageIconSection: any = createAsyncThunk(
+  'HomepageReducer/ActionCreateSubPage',
+  // naming convention (reducer/action_name)
+  async (data: number) => {
+    const res = await HomepageHttpHandle.CreateSubPageIconSection(data)
+    return res.data
+  }
+)
+
+const ActionEditSubPageIconItem: any = createAsyncThunk(
+  'HomepageReducer/ActionCreateSubPage',
+  // naming convention (reducer/action_name)
+  async (id: number) => {
+    const res = await HomepageHttpHandle.EditSubPageIconItem(id)
+    return res.data
+  }
+)
+
 export {
   ActionCreateMenu,
   ActionListMenu,
@@ -75,4 +118,9 @@ export {
   ActionMenuTypeList,
   ActionSectionList,
   ActionCreatePage,
+  ActionGetPageItem,
+  ActionEditPageItem,
+  ActionDeletePageSection,
+  ActionCreateSubPageIconSection,
+  ActionEditSubPageIconItem,
 }

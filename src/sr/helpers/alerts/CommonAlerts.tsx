@@ -7,6 +7,6 @@ export const Missing = (data?: string) => {
   if (data) {
     return toast.success(`Created ${Capitalzed(data)} successfully`)
   } else {
-    return toast.success(`Something is missing!`)
+    return toast.error(`Something is missing!`)
   }
 }

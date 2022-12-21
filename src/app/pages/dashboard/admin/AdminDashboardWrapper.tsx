@@ -10,6 +10,8 @@ import CardWidget4 from 'sr/partials/widgets/widgets-components/cards/CardWidget
 import CardWidget5 from 'sr/partials/widgets/widgets-components/cards/CardWidget5'
 import CardWidget6 from 'sr/partials/widgets/widgets-components/cards/CardWidget6'
 import CardWidget7 from 'sr/partials/widgets/widgets-components/cards/CardWidget7'
+import CardWidget8 from 'sr/partials/widgets/widgets-components/cards/CardWidget8'
+import CardWidget9 from 'sr/partials/widgets/widgets-components/cards/CardWidget9'
 import {ActionListMenu, ActionSectionList} from 'sr/redux/admin/actions/HomepageAction'
 import {useAdminSelector} from 'sr/redux/reducers'
 
@@ -71,8 +73,10 @@ const AdminDashboardPage = () => {
             <div className='col-md-9 overflow-auto h-screen'>
               <h4>Sections List</h4>
               <CardWidget5 list={homepage.menuList} loading={!homepage.loading} />
-              <CardWidget6 />
+              <CardWidget6 banner={homepage.sectionList} />
               <CardWidget7 whySwoosh={homepage.sectionList} />
+              <CardWidget8 conversation_ai={homepage.sectionList} />
+              <CardWidget9 chat_bot={homepage.sectionList} />
             </div>
           </div>
         </div>

@@ -11,12 +11,18 @@ import {
   ActionMenuTypeList,
   ActionSectionList,
   ActionCreatePage,
+  ActionGetPageItem,
+  ActionEditPageItem,
+  ActionDeletePageSection,
+  ActionCreateSubPageIconSection,
 } from '../actions/HomepageAction'
 
 const initialState = {
   menuList: [],
   menuTypeList: [],
   sectionList: [],
+  pageSectionDetails: [],
+  itemDetails: [],
   loading: false,
   error: [],
 }
@@ -87,9 +93,27 @@ const Homepage = createSlice({
     [ActionGetMenuItem.fulfilled]: (state: any, action: any) => {
       state.loading = false
       state.itemDetails = action.payload
+      state.pageSectionDetails = []
     },
     // not have any response from api
     [ActionGetMenuItem.rejected]: (state: any) => {
+      state.loading = false
+      ConnectionError()
+    },
+
+    // *************** get header Menu list item *************
+    // initialize request
+    [ActionGetPageItem.pending]: (state: any) => {
+      state.loading = false
+    },
+    // have any response from api with status code 200
+    [ActionGetPageItem.fulfilled]: (state: any, action: any) => {
+      state.loading = false
+      state.pageSectionDetails = action.payload
+      state.itemDetails = []
+    },
+    // not have any response from api
+    [ActionGetPageItem.rejected]: (state: any) => {
       state.loading = false
       ConnectionError()
     },
@@ -126,10 +150,31 @@ const Homepage = createSlice({
       ConnectionError()
     },
 
+    // *************** edit/update page list item *************
+    // initialize request
+    [ActionEditPageItem.pending]: (state: any) => {
+      state.loading = false
+    },
+    // have any response from api with status code 200
+    [ActionEditPageItem.fulfilled]: (state: any, action: any) => {
+      state.loading = false
+      Edit('Page')
+    },
+    // not have any response from api
+    [ActionEditPageItem.rejected]: (state: any) => {
+      state.loading = false
+      ConnectionError()
+    },
+
     // *************** get section list item *************
     // initialize request
     [ActionSectionList.pending]: (state: any) => {
       state.loading = true
+      if (state.menuList.length > 0) {
+        state.loading = false
+      } else {
+        state.loading = true
+      }
     },
     // have any response from api with status code 200
     [ActionSectionList.fulfilled]: (state: any, action: any) => {
@@ -138,6 +183,23 @@ const Homepage = createSlice({
     },
     // not have any response from api
     [ActionSectionList.rejected]: (state: any) => {
+      state.loading = false
+      ConnectionError()
+    },
+
+    // *************** get section list item *************
+    // initialize request
+    [ActionDeletePageSection.pending]: (state: any) => {
+      state.loading = true
+      state.loading = false
+    },
+    // have any response from api with status code 200
+    [ActionDeletePageSection.fulfilled]: (state: any, action: any) => {
+      state.loading = false
+      Delete('Page Section')
+    },
+    // not have any response from api
+    [ActionDeletePageSection.rejected]: (state: any) => {
       state.loading = false
       ConnectionError()
     },
@@ -154,6 +216,22 @@ const Homepage = createSlice({
     },
     // not have any response from api
     [ActionCreatePage.rejected]: (state: any) => {
+      state.loading = false
+      ConnectionError()
+    },
+
+    // *************** create page section  *************
+    // initialize request
+    [ActionCreateSubPageIconSection.pending]: (state: any) => {
+      state.loading = false
+    },
+    // have any response from api with status code 200
+    [ActionCreateSubPageIconSection.fulfilled]: (state: any, action: any) => {
+      state.loading = false
+      Success('Sub Page Icon Section')
+    },
+    // not have any response from api
+    [ActionCreateSubPageIconSection.rejected]: (state: any) => {
       state.loading = false
       ConnectionError()
     },

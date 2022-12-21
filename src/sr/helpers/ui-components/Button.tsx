@@ -11,7 +11,7 @@ type Props = {
   className?: string
   svgIconColor?: string
   textClassName?: string
-  onClick?: () => void
+  onClick?: (e: any) => void
 }
 // 'ui-button-1', 'ui-button-2'
 

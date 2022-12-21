@@ -9,12 +9,12 @@ import {
   ActionSectionList,
 } from 'sr/redux/admin/actions/HomepageAction'
 
-type Props = {whySwoosh: any}
+type Props = {conversation_ai: any}
 
-export default function CardWidget7({whySwoosh}: Props) {
-  // console.log(whySwoosh)
-  const data = whySwoosh.find((item: any) => item.menu_type === 2)
-  const dataCards = whySwoosh.filter((item: any) => item.menu_type === 5)
+export default function CardWidget8({conversation_ai}: Props) {
+  // console.log(conversation_ai)
+  const data = conversation_ai.find((item: any) => item.menu_type === 3)
+  const dataCards = conversation_ai.filter((item: any) => item.menu_type === 6)
   // url
   // redux
   const dispatch = useDispatch()
@@ -40,8 +40,8 @@ export default function CardWidget7({whySwoosh}: Props) {
   // useeffects
   return (
     <>
-      <div className='py-20 border_secondary mt-3 radius-8 p-4 gap-3 card_widget_7'>
-        <h5>Why Swoosh Section with Cards Details</h5>
+      <div className='py-20 border_secondary mt-3 radius-8 p-4 gap-3 card_widget_8'>
+        <h5>Conversational AI Section with Cards Details</h5>
         {data ? (
           <div className='d-flex gap-4'>
             <div className='radius-8 p-3 mt-2 w-100 bg_secondary_85'>
@@ -75,11 +75,9 @@ export default function CardWidget7({whySwoosh}: Props) {
             <Loader />
           </span>
         )}
-
-        <h5 className='mt-3'>Why Swoosh Icon Section</h5>
-        <div className='gap-3 mt-20 card_widget_7_subsection'>
-          {data ? (
-            data.subsection?.map((item: any, key: any) => {
+        <div className='gap-3 mt-20 card_widget_8_subsection'>
+          {dataCards ? (
+            dataCards.map((item: any, key: any) => {
               return (
                 <div key={key} className='radius-8 p-3 bg_secondary_85'>
                   <div className='d-flex justify-content-between flex-row align-items-center'>
@@ -106,61 +104,12 @@ export default function CardWidget7({whySwoosh}: Props) {
                       </span>
                     </div>
                   </div>
-                  <h6 className='pt-2'>Title : {item.title}</h6>
-                  <h6 className='pt-2'>Description : {item.description}</h6>
-                  <h6 className='pt-2'>Link : {item.link}</h6>
                   <h6 className='pt-2 d-flex justify-content-between'>
                     <span>Icon:</span>{' '}
-                    <img
-                      width={'20'}
-                      height={'20'}
-                      src={`${process.env.REACT_APP_BASE_URL}${item.image_field}`}
-                      alt='icon'
-                    />
+                    <img width={'20'} height={'20'} src={item.image_field} alt='icon' />
                   </h6>
-                </div>
-              )
-            })
-          ) : (
-            <span className='mt-2'>
-              <Loader />
-            </span>
-          )}
-        </div>
-
-        <h5 className='mt-3'>Why Swoosh Card Section</h5>
-        <div className='gap-3 mt-20 card_widget_7_subsection'>
-          {dataCards ? (
-            dataCards?.map((item: any, key: any) => {
-              return (
-                <div key={key} className='radius-8 p-3 bg_secondary_85'>
-                  <div className='d-flex justify-content-between flex-row align-items-center'>
-                    <h6 className='fonts-600 '>Card {key + 1}</h6>
-                    <div className='d-flex gap-3 '>
-                      <span
-                        id={item.id}
-                        onClick={(e: any) => {
-                          DeleteMenu(e)
-                        }}
-                      >
-                        <KTSVG
-                          className='cursor'
-                          path={'/media/icons/duotone/general/delete.svg'}
-                        />
-                      </span>
-                      <span
-                        id={item.id}
-                        onClick={(e: any) => {
-                          EditSection(e)
-                        }}
-                      >
-                        <KTSVG className='cursor' path={'/media/icons/duotone/abstract/edit.svg'} />
-                      </span>
-                    </div>
-                  </div>
                   <h6 className='pt-2'>Title : {item.title}</h6>
                   <h6 className='pt-2'>Description : {item.description}</h6>
-                  <h6 className='pt-2'>Link : {item.link}</h6>
                 </div>
               )
             })
