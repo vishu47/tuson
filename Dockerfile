@@ -3,7 +3,7 @@ FROM node:16
 WORKDIR /src
 COPY . .
 
-EXPOSE 4006
+EXPOSE 4004
 
 RUN npm install
 RUN npm install serve
