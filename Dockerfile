@@ -7,6 +7,6 @@ EXPOSE 4004
 
 RUN npm install
 RUN npm install serve
-RUN npm install build
+RUN npm run build
 
 CMD ["npm","run","deploy"]
