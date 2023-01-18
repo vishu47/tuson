@@ -8,6 +8,9 @@
 // component pages scss
 @import "component-pages/dashboard";
 @import "component-pages/auth";
+@import "component-pages/bazaar";
+@import "component-pages/aiengines";
+@import "component-pages/use-cases";
 // ui components
 @import "ui-components/button";
 @import "ui-components/input";
@@ -30,3 +33,6 @@
 @import "widgets/card-widget-3";
 @import "widgets/card-widget-7";
 @import "widgets/card-widget-8";
+@import "widgets/card-widget-11";
+@import "widgets/card-widget-13";
+@import "widgets/navigation-header";

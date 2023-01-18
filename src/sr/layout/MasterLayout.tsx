@@ -1,3 +1,4 @@
+import {useAuth} from 'app/pages/module/auth'
 import clsx from 'clsx'
 import {useEffect, useState} from 'react'
 import {Outlet, useLocation} from 'react-router-dom'
@@ -8,13 +9,15 @@ import {Footer} from './components/footer/Footer'
 import {MainFooter} from './components/footer/MainFooter'
 import {HeaderWrapper} from './components/header/HeaderWrapper'
 import {MainHeaderWrapper} from './components/header/main-header/MainHeaderWrapper'
-import {PageDataProvider, usePageData} from './master-layout'
+import {usePageData} from './master-layout'
 
 const MasterLayout = () => {
   // context
   const {pageHeader, setPageHeader} = usePageData()
+  const {currentUser} = useAuth()
   // urls
   const {pathname} = useLocation()
+  console.log(pathname)
   // states
   const [theme, setTheme] = useState('light')
 
@@ -36,7 +39,7 @@ const MasterLayout = () => {
               {/* begin::Wrapper */}
               <div className='d-flex flex-column w-100'>
                 <div className='master_layout_main'>
-                  {pageHeader === 'engine' ? <HeaderWrapper /> : <MainHeaderWrapper />}
+                  {pageHeader ? <HeaderWrapper /> : <MainHeaderWrapper />}
                   {/* main layout header */}
                 </div>
                 {/* begin::Content */}
@@ -45,7 +48,7 @@ const MasterLayout = () => {
                 </div>
                 {/* end::Content */}
                 <div className='master_layout_main'>
-                  {pageHeader === 'engine' ? <Footer /> : <MainFooter />}
+                  {!pageHeader ? <Footer /> : <MainFooter />}
                 </div>
               </div>
               {/* end::Wrapper */}

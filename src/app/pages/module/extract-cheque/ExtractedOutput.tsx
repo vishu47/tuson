@@ -32,7 +32,6 @@ export default function ExtractedOutput() {
     setListSidebar(false)
   }
   const OpenToggleSidebar = () => {
-    console.log('ljkjkl')
     setListSidebar(true)
   }
   const OpenUploadSidebar = () => {
@@ -55,6 +54,7 @@ export default function ExtractedOutput() {
       return navigate('/extract-cheque')
     }, 5000)
   }
+
   // useeffects
   useEffect(() => {
     setBreadCrumbState(true)

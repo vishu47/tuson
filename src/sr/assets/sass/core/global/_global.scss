@@ -217,6 +217,13 @@ h6 {
     // }
 }
 
+.bg_secondary_15 {
+    background-color: $secondary_15;
+    // @include themify($themes) {
+    //     background-color: themed("bgColorSecondary");
+    // }
+}
+
 .bg_primary {
     background-color: $primary;
     // @include themify($themes) {
@@ -287,8 +294,15 @@ h6 {
     // }
 }
 
+.text_black_85 {
+    color: $black_85;
+    // @include themify($themes) {
+    //     color: themed("bgColor");
+    // }
+}
+
 .text_black_70 {
-    color: $sc_black_70;
+    color: $sc_black_70 !important;
     // @include themify($themes) {
     //     color: themed("bgColor");
     // }

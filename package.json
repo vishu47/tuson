@@ -59,6 +59,7 @@
         "@types/react": "18.0.6",
         "@types/react-copy-to-clipboard": "5.0.2",
         "@types/react-dom": "18.0.2",
+        "@types/react-slick": "^0.23.10",
         "@types/react-table": "^7.7.9",
         "@types/redux-logger": "^3.0.9",
         "@typescript-eslint/eslint-plugin": "^5.38.0",
