@@ -1,14 +1,46 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Spinner} from 'react-bootstrap'
 import {Button, Input, toAbsoluteUrl} from 'sr/helpers'
+import {OnlyNumber} from 'sr/helpers/constants/Regex.Constants'
+import {
+  LoginPassword,
+  LoginUserName,
+  LoginUserNameLength,
+} from 'sr/helpers/constants/ValidationConstatnt'
 import Slider2 from 'sr/partials/widgets/widgets-components/sliders/Slider2'
 import {useAuth} from './core/Auth'
 
 export default function AuthPage() {
   const {setCurrentUser} = useAuth()
+  const [username, setUsername] = useState<undefined | string>(undefined)
+  const [password, setPassword] = useState<undefined | any>(undefined)
+  const [error, setError] = useState<null | any>({username, password})
   const LoginAction = (e: any) => {
     e.preventDefault()
-    setCurrentUser({id: 888})
+    console.log(error, error.username, error.password, password, username)
+    setError({})
+    if (username === undefined && password === undefined) {
+      setError({
+        username: LoginUserName,
+        password: LoginPassword,
+      })
+    } else if (username === undefined) {
+      setError({
+        username: LoginUserName,
+      })
+    } else if (password === undefined) {
+      setError({
+        password: LoginPassword,
+      })
+    }
+    if (username !== undefined) {
+      if (OnlyNumber.test(username) === false || username.length !== 7) {
+        setError({
+          username: LoginUserNameLength,
+        })
+      }
+    }
+    // setCurrentUser({id: 888})
   }
   return (
     <>
@@ -36,17 +68,23 @@ export default function AuthPage() {
                     <h2>Sign In</h2>
                     <Input
                       type='email'
-                      label={'Email'}
-                      placeholder={'Enter Email...'}
-                      onChange={() => {}}
+                      label={'Bank Id'}
+                      placeholder={'Bank Id...'}
+                      onChange={(e: any) => {
+                        setUsername(e.target.value)
+                      }}
                       inputClass='w-100'
+                      error={error.username}
                     />
                     <Input
                       type='password'
                       label={'Password'}
                       placeholder={'Enter Password...'}
-                      onChange={() => {}}
+                      onChange={(e: any) => {
+                        setPassword(e.target.value)
+                      }}
                       inputClass='w-100'
+                      error={error.password}
                     />
                     <Button
                       type={'ui-button-2'}
