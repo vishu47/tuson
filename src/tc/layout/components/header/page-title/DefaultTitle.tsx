@@ -1,8 +1,6 @@
 import {FC, Fragment} from 'react'
 import clsx from 'clsx'
-import {Link} from 'react-router-dom'
-import {useLayout} from 'sr/layout/master-layout/LayoutProvider'
-import {usePageData} from 'sr/layout/master-layout/PageData'
+import {useLayout, usePageData} from 'tc/layout/master-layout'
 
 const DefaultTitle: FC = () => {
   const {pageTitle, pageDescription, pageBreadcrumbs} = usePageData()
@@ -55,9 +53,9 @@ const DefaultTitle: FC = () => {
                         <li className='breadcrumb-item text-dark'>{item.title}</li>
                       ) : (
                         <li className='breadcrumb-item text-muted'>
-                          <Link to={item.path} className='text-muted text-hover-primary'>
+                          {/* <Link to={item.path} className='text-muted text-hover-primary'>
                             {item.title}
-                          </Link>
+                          </Link> */}
                         </li>
                       )}
                     </>

@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import {usePageData} from 'tc/layout/master-layout'
 
 // type Props = {}
 

@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import React from 'react'
-import SVG from 'react-inlinesvg'
-import {toAbsoluteUrl} from 'sr/helpers/AssetHelpers'
+import {toAbsoluteUrl} from '../AssetHelpers'
 type Props = {
   className?: string
   path: string

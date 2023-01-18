@@ -5,8 +5,8 @@ import clsx from 'clsx'
 import {Link} from 'react-router-dom'
 import {useLocation} from 'react-router'
 import {Tooltip, OverlayTrigger} from 'react-bootstrap'
-import {checkIsActive, KTSVG, WithChildren} from 'sr/helpers'
-import {useLayout} from 'sr/layout/master-layout'
+import {checkIsActive, KTSVG, WithChildren} from 'tc/helpers'
+import {useLayout} from 'tc/layout/master-layout'
 
 type Props = {
   to: string

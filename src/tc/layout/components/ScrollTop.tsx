@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import {useLocation} from 'react-router-dom'
-import {KTSVG} from 'sr/helpers'
+import {KTSVG} from 'tc/helpers'
 
 export function ScrollTop() {
   const {pathname} = useLocation()

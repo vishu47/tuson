@@ -6,8 +6,12 @@ import React, {
   useEffect,
   SetStateAction,
   Dispatch,
+  ReactNode,
 } from 'react'
-import {WithChildren} from 'sr/helpers'
+
+type WithChildren = {
+  children?: ReactNode
+}
 
 const UnwindSplashScreenContext = createContext<Dispatch<SetStateAction<number>> | undefined>(
   undefined

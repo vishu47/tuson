@@ -1,7 +1,7 @@
 import {FC} from 'react'
 import clsx from 'clsx'
-import {useLayout} from 'sr/layout/master-layout'
-import {WithChildren} from 'sr/helpers'
+import {useLayout} from '../master-layout'
+import {WithChildren} from 'tc/helpers'
 
 const Content: FC<WithChildren> = ({children}) => {
   const {classes} = useLayout()

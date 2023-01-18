@@ -1,6 +1,6 @@
 import {FC} from 'react'
 import clsx from 'clsx'
-import {WithChildren} from 'sr/helpers/react18MigrationHelpers'
+import {WithChildren} from '../react18MigrationHelpers'
 
 type Props = {
   className?: string

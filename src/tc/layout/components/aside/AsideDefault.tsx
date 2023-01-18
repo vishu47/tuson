@@ -2,10 +2,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import {FC} from 'react'
 import {Link} from 'react-router-dom'
+import {toAbsoluteUrl} from 'tc/helpers'
+import {useLayout} from 'tc/layout/master-layout'
 // import clsx from 'clsx'
 import {AsideMenu} from './AsideMenu'
-import {useLayout} from 'sr/layout/master-layout'
-import {toAbsoluteUrl} from 'sr/helpers'
 
 const AsideDefault: FC = () => {
   const {classes} = useLayout()

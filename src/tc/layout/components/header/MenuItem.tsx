@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react'
-import {Link} from 'react-router-dom'
-import {useLocation} from 'react-router'
 import clsx from 'clsx'
-import {checkIsActive, KTSVG, toAbsoluteUrl} from 'sr/helpers'
-import {KTIMG} from 'sr/helpers/ui-components/KTIMG'
+import {Link, useLocation} from 'react-router-dom'
+import {checkIsActive, KTSVG} from 'tc/helpers'
+import {KTIMG} from 'tc/helpers/ui-components/KTIMG'
 
 type Props = {
   to?: string

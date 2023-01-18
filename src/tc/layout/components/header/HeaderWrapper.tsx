@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import clsx from 'clsx'
-import {ThemeModeSwitcher} from 'sr/partials/themes/theme-mode/ThemeModeSwitcher'
 import {Header} from './Header'
 import {Topbar} from './Topbar'
 

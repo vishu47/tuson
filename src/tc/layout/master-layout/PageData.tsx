@@ -1,7 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {FC, createContext, useContext, useEffect, useState} from 'react'
+import {FC, createContext, useContext, useEffect, useState, ReactNode} from 'react'
 import {Link} from 'react-router-dom'
-import {KTSVG, WithChildren} from 'sr/helpers'
+
+type WithChildren = {
+  children?: ReactNode
+}
 
 export interface PageLink {
   title: string
@@ -106,12 +109,12 @@ const PageTitle: FC<Props & WithChildren> = ({children, description, breadcrumbs
                   {item.path ? (
                     <Link to={item.path}>
                       {item.title}
-                      <KTSVG path={'/media/icons/duotone/general/gen03.svg'} />
+                      {/* <KTSVG path={'/media/icons/duotone/general/gen03.svg'} /> */}
                     </Link>
                   ) : (
                     <p>
                       {item.title}
-                      <KTSVG path={'/media/icons/duotone/general/gen03.svg'} />
+                      {/* <KTSVG path={'/media/icons/duotone/general/gen03.svg'} /> */}
                     </p>
                   )}
                 </>

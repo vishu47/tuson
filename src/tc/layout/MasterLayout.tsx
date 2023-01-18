@@ -1,29 +1,19 @@
-import {useAuth} from 'app/pages/module/auth'
 import clsx from 'clsx'
 import {useEffect, useState} from 'react'
-import {Outlet, useLocation} from 'react-router-dom'
-import {getUrlForHeader} from 'sr/helpers'
-import {ThemeContext} from 'sr/partials/partials'
-import {Footer} from './components/footer/Footer'
+import {Outlet} from 'react-router-dom'
+import {ThemeContext} from 'tc/partials/partials'
 import {MainFooter} from './components/footer/MainFooter'
-import {HeaderWrapper} from './components/header/HeaderWrapper'
 import {MainHeaderWrapper} from './components/header/main-header/MainHeaderWrapper'
 import {usePageData} from './master-layout'
 
 const MasterLayout = () => {
   // context
   const {pageHeader, setPageHeader} = usePageData()
-  const {currentUser} = useAuth()
   // urls
-  const {pathname} = useLocation()
-  console.log(pathname)
   // states
   const [theme, setTheme] = useState('light')
 
-  useEffect(() => {
-    if (getUrlForHeader(pathname, 'engine')) return setPageHeader('engine')
-    setPageHeader('')
-  }, [pageHeader, pathname, setPageHeader])
+  useEffect(() => {}, [])
 
   return (
     <ThemeContext.Provider value={{theme, setTheme}}>
@@ -38,7 +28,7 @@ const MasterLayout = () => {
               {/* begin::Wrapper */}
               <div className='d-flex flex-column w-100'>
                 <div className='master_layout_main'>
-                  {pageHeader ? <HeaderWrapper /> : <MainHeaderWrapper />}
+                  {<MainHeaderWrapper />}
                   {/* main layout header */}
                 </div>
                 {/* begin::Content */}
@@ -46,9 +36,7 @@ const MasterLayout = () => {
                   <Outlet />
                 </div>
                 {/* end::Content */}
-                <div className='master_layout_main'>
-                  {!pageHeader ? <Footer /> : <MainFooter />}
-                </div>
+                <div className='master_layout_main'>{<MainFooter />}</div>
               </div>
               {/* end::Wrapper */}
             </div>

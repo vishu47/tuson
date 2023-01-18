@@ -1,5 +1,5 @@
+import {usePageData} from 'tc/layout/master-layout'
 import {MenuItem} from './MenuItem'
-import {usePageData} from 'sr/layout/master-layout'
 
 export function MenuInner() {
   const {headerTitle} = usePageData()

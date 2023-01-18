@@ -1,9 +1,9 @@
 import {FC} from 'react'
 import clsx from 'clsx'
-import {useLocation} from 'react-router'
 import {OverlayTrigger, Tooltip} from 'react-bootstrap'
-import {checkIsActive, WithChildren} from 'sr/helpers'
-import {useLayout} from 'sr/layout/master-layout'
+import {checkIsActive, WithChildren} from 'tc/helpers'
+import {useLocation} from 'react-router-dom'
+import {useLayout} from 'tc/layout/master-layout'
 
 type Props = {
   to: string

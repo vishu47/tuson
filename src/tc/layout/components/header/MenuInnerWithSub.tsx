@@ -1,7 +1,7 @@
 import {FC, useRef, useEffect} from 'react'
-import {useLocation} from 'react-router'
 import clsx from 'clsx'
-import {checkIsActive, KTSVG, WithChildren} from 'sr/helpers/index'
+import {useLocation} from 'react-router-dom'
+import {checkIsActive, KTSVG, WithChildren} from 'tc/helpers'
 
 type Props = {
   to: string

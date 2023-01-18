@@ -1,8 +1,7 @@
 import {FC} from 'react'
 import clsx from 'clsx'
-import {Button, KTSVG, toAbsoluteUrl} from 'sr/helpers/index'
-import {ThemeModeSwitcher} from 'sr/partials/themes/theme-mode/ThemeModeSwitcher'
 import {MenuItem} from './MenuItem'
+import {KTSVG, toAbsoluteUrl} from 'tc/helpers'
 
 // const itemClass = 'ms-1 ms-lg-3'
 // const btnClass = 'btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px'

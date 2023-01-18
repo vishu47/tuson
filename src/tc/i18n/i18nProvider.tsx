@@ -1,4 +1,4 @@
-import {FC} from 'react'
+import {FC, ReactNode} from 'react'
 import {useLang} from './Originali18n'
 import {IntlProvider} from 'react-intl'
 import '@formatjs/intl-relativetimeformat/polyfill'
@@ -15,8 +15,9 @@ import esMessages from './messages/es.json'
 import frMessages from './messages/fr.json'
 import jaMessages from './messages/ja.json'
 import zhMessages from './messages/zh.json'
-import {WithChildren} from 'sr/helpers'
-
+type WithChildren = {
+  children?: ReactNode
+}
 const allMessages = {
   de: deMessages,
   en: enMessages,

@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import {useContext} from 'react'
-import {KTSVG, toAbsoluteUrl} from 'sr/helpers'
 import {ThemeContext} from './ThemeModeProvider'
 
 /* eslint-disable jsx-a11y/anchor-is-valid */

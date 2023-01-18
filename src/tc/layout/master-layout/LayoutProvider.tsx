@@ -1,4 +1,4 @@
-import {FC, createContext, useContext, useState, useEffect} from 'react'
+import {FC, createContext, useContext, useState, useEffect, ReactNode} from 'react'
 import {DefaultLayoutConfig} from './DefaultLayoutConfig'
 import {
   getEmptyCssClasses,
@@ -13,7 +13,10 @@ import {
   ILayoutCSSClasses,
   ILayoutHTMLAttributes,
 } from './LayoutModels'
-import {WithChildren} from 'sr/helpers'
+
+type WithChildren = {
+  children?: ReactNode
+}
 
 export interface LayoutContextModel {
   config: ILayout
